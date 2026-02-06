@@ -1,0 +1,193 @@
+{
+  "kind": "build_request",
+  "title": "Cute animated Valentine’s Day mini-site with YES/NO interaction and gated final page",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Implement a mobile-friendly, responsive single-page Valentine’s Day experience with a soft pastel Valentine theme (pink/red/blush), floating hearts + sparkles background, smooth transitions, and playful animations applied consistently across the site.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create a cute, romantic animated Valentine’s Day website.\nTheme & Style:\nSoft pastel Valentine theme (pink, red, blush tones), floating hearts, sparkles, smooth transitions, playful animations. Mobile-friendly and responsive."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Layout is responsive on common mobile and desktop breakpoints and does not overflow horizontally.",
+        "Background shows continuous floating hearts and subtle sparkles without blocking primary UI interactions.",
+        "Animations/transitions are smooth (no jarring page jumps) when elements appear/disappear or when navigating between views."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Create the Landing Page with centered animated prompt text that displays the exact string: “Gunja, will you be my Valentine? 💖” using a typing effect or a fade-in effect, and render two buttons below: “YES 💕” and “NO 🙈”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Landing Page:\nCentered animated text (typing or fade-in effect):\n“Gunja, will you be my Valentine? 💖”\nTwo buttons below the text:\nYES 💕 and NO 🙈"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Landing view shows the prompt text exactly as provided and it animates in (typing or fade).",
+        "Two buttons are clearly visible beneath the prompt with the exact labels: “YES 💕” and “NO 🙈”.",
+        "All user-facing text is in English."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Implement NO button behavior so that clicking “NO 🙈” never navigates to the final page and instead cycles through a changing set of cute animated messages (popup / floating text / bounce) on each click, including at least these messages: “Are you sure? 🥺”, “My heart just melted a little 💔”, “Okay… I’ll ask again nicely 🌸”, “I’m not giving up on us 💗”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "NO button behavior:\nWhen NO is clicked, do not allow navigation to the next page.\nEach click shows a new cute animated message (popup / floating text / bounce animation), such as:\n“Are you sure? 🥺”\n“My heart just melted a little 💔”\n“Okay… I’ll ask again nicely 🌸”\n“I’m not giving up on us 💗”\nMessages should change every time NO is pressed."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking “NO 🙈” does not change the app to the final page and does not unlock final-page access.",
+        "Each “NO 🙈” click shows a message with a visible animation (e.g., bounce, float-up, or popup).",
+        "Messages rotate/change on every click and include at least the four quoted messages exactly."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Add playful anti-selection behavior to the “NO 🙈” button (e.g., moving slightly, shrinking, or dodging) triggered on click and/or hover, while ensuring it remains accessible and tappable on mobile.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Add playful behavior like the NO button moving slightly, shrinking, or dodging clicks."
+        ]
+      },
+      "acceptanceCriteria": [
+        "The “NO 🙈” button exhibits playful motion/size change behavior that is noticeable and varies user interaction.",
+        "On mobile, the “NO 🙈” button remains usable (not permanently unreachable) and does not cause layout breakage."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Implement YES button behavior so that clicking “YES 💕” triggers a celebratory heart-burst or confetti animation and transitions to the Final Page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "YES button behavior:\nOn clicking YES, transition to the final page with a heart-burst or confetti animation."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking “YES 💕” triggers a visible heart-burst or confetti animation.",
+        "After the celebration, the app transitions to the final page view."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Gate Final Page access so the user cannot reach the final page unless “YES 💕” was clicked in the current session; direct navigation/refresh should show the landing page (or otherwise block final content) until YES has been clicked.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Logic Requirement:\nUser cannot reach the final page unless YES is clicked.\nNO button only triggers cute messages and playful animations."
+        ]
+      },
+      "acceptanceCriteria": [
+        "If the app is loaded directly into the final page route/view (e.g., refresh or direct link), the final content is not shown unless YES was clicked in the current session.",
+        "After clicking “YES 💕”, the final page becomes accessible for the remainder of the session."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Create the Final Page with centered animated text showing the exact string: “I knew you’d say YES ❤️”, followed by a cute cartoon-style romantic couple illustration/photo that gently animates (floating or pulsing), and below it a soft fade-in message showing the exact string: “You’ve made me the happiest 💕”.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Final Page:\nCentered animated text:\n“I knew you’d say YES ❤️”\nBelow the text, display a cute animated couple illustration/photo (cartoon-style or romantic illustration, gently animated like floating or pulsing).\nBelow the couple image, show this message with a soft fade-in animation:\n“You’ve made me the happiest 💕”"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Final page displays the two exact text strings provided and both animate in (headline animated; bottom message fades in).",
+        "A couple illustration/photo is shown and has a gentle looping animation (float or pulse)."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add an optional soft romantic background music feature with user-friendly playback behavior (default off/muted, clear play/pause control, does not autoplay with sound on initial load).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Optional soft romantic background music."
+        ]
+      },
+      "acceptanceCriteria": [
+        "There is a visible play/pause (and/or mute) control for background music.",
+        "Music does not autoplay with sound upon initial page load (user gesture required to start audio)."
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "text": "Apply a coherent, cute romantic visual system across all views (typography pairing, button styles, spacing, card/popup styling for messages) that matches the pastel Valentine aesthetic and remains readable and accessible.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Overall Mood:\nCute, romantic, playful, heartfelt, and memorable."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Typography, buttons, popups, and animations look consistent across landing and final pages.",
+        "Contrast/readability is sufficient for primary text and buttons on typical screens."
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "text": "Add the generated couple illustration image as a static asset under frontend/public/assets/generated and render it on the Final Page.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The couple illustration is stored as a static file in frontend/public/assets/generated.",
+        "The final page displays the static asset and applies gentle animation (float/pulse) to it."
+      ]
+    }
+  ],
+  "constraints": [
+    "Frontend immutable paths must not be edited: frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useInternetIdentity.tsx, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, frontend/src/components/ui.",
+    "Backend must remain single-actor architecture (no additional backend services/canisters).",
+    "Use English for any user-facing text in the build request."
+  ],
+  "nonGoals": [
+    "Internet Identity authentication or user accounts.",
+    "Any backend persistence for YES/NO choice beyond current session gating.",
+    "Real-time features, chat, notifications, or third-party API integrations."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Cute cartoon-style romantic couple illustration, pastel palette, centered composition, transparent or soft background (valentine-couple.dim_800x600.png)"
+    ],
+    "edits": []
+  }
+}

@@ -1,0 +1,135 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Cute, romantic animated Valentine’s Day website with pastel theme, floating hearts/sparkles, a gated YES/NO interaction on the landing page, playful NO-button behaviors with cycling messages, and a celebratory transition to a final page featuring animated text and a couple illustration (optional background music).",
+  "architectural_notes": [
+    "Final page must be unreachable unless YES action is completed; NO interactions never navigate."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Cute cartoon-style romantic couple illustration, pastel palette, centered composition, transparent or soft background (valentine-couple.dim_800x600.png)",
+  "existing_features": [
+    {
+      "id": "feature-implement-a-mobile-friendly-responsive-single-page-valentine-s-day-experience-with-a-soft-pastel-valentine-theme-pink-red-blush-floating-hearts-sparkles-background-smooth-transitions-and-playful-animations-applied-consistently-across-the-site",
+      "title": "Implement a mobile-friendly, responsive single-page Valentine’s Day experience with a soft pastel Valentine theme (pink/red/blush), floating hearts + sparkles background, smooth transitions, and playful animations applied consistently across the site.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-landing-page-with-centered-animated-prompt-text-that-displays-the-exact-string-gunja-will-you-be-my-valentine-using-a-typing-effect-or-a-fade-in-effect-and-render-two-buttons-below-yes-and-no",
+      "title": "Create the Landing Page with centered animated prompt text that displays the exact string: “Gunja, will you be my Valentine? 💖” using a typing effect or a fade-in effect, and render two buttons below: “YES 💕” and “NO 🙈”.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-no-button-behavior-so-that-clicking-no-never-navigates-to-the-final-page-and-instead-cycles-through-a-changing-set-of-cute-animated-messages-popup-floating-text-bounce-on-each-click-including-at-least-these-messages-are-you-sure-my-heart-just-melted-a-little-okay-i-ll-ask-again-nicely-i-m-not-giving-up-on-us",
+      "title": "Implement NO button behavior so that clicking “NO 🙈” never navigates to the final page and instead cycles through a changing set of cute animated messages (popup / floating text / bounce) on each click, including at least these messages: “Are you sure? 🥺”, “My heart just melted a little 💔”, “Okay… I’ll ask again nicely 🌸”, “I’m not giving up on us 💗”.",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-playful-anti-selection-behavior-to-the-no-button-e-g-moving-slightly-shrinking-or-dodging-triggered-on-click-and-or-hover-while-ensuring-it-remains-accessible-and-tappable-on-mobile",
+      "title": "Add playful anti-selection behavior to the “NO 🙈” button (e.g., moving slightly, shrinking, or dodging) triggered on click and/or hover, while ensuring it remains accessible and tappable on mobile.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-yes-button-behavior-so-that-clicking-yes-triggers-a-celebratory-heart-burst-or-confetti-animation-and-transitions-to-the-final-page",
+      "title": "Implement YES button behavior so that clicking “YES 💕” triggers a celebratory heart-burst or confetti animation and transitions to the Final Page.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-gate-final-page-access-so-the-user-cannot-reach-the-final-page-unless-yes-was-clicked-in-the-current-session-direct-navigation-refresh-should-show-the-landing-page-or-otherwise-block-final-content-until-yes-has-been-clicked",
+      "title": "Gate Final Page access so the user cannot reach the final page unless “YES 💕” was clicked in the current session; direct navigation/refresh should show the landing page (or otherwise block final content) until YES has been clicked.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-the-final-page-with-centered-animated-text-showing-the-exact-string-i-knew-you-d-say-yes-followed-by-a-cute-cartoon-style-romantic-couple-illustration-photo-that-gently-animates-floating-or-pulsing-and-below-it-a-soft-fade-in-message-showing-the-exact-string-you-ve-made-me-the-happiest",
+      "title": "Create the Final Page with centered animated text showing the exact string: “I knew you’d say YES ❤️”, followed by a cute cartoon-style romantic couple illustration/photo that gently animates (floating or pulsing), and below it a soft fade-in message showing the exact string: “You’ve made me the happiest 💕”.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-an-optional-soft-romantic-background-music-feature-with-user-friendly-playback-behavior-default-off-muted-clear-play-pause-control-does-not-autoplay-with-sound-on-initial-load",
+      "title": "Add an optional soft romantic background music feature with user-friendly playback behavior (default off/muted, clear play/pause control, does not autoplay with sound on initial load).",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-coherent-cute-romantic-visual-system-across-all-views-typography-pairing-button-styles-spacing-card-popup-styling-for-messages-that-matches-the-pastel-valentine-aesthetic-and-remains-readable-and-accessible",
+      "title": "Apply a coherent, cute romantic visual system across all views (typography pairing, button styles, spacing, card/popup styling for messages) that matches the pastel Valentine aesthetic and remains readable and accessible.",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-the-generated-couple-illustration-image-as-a-static-asset-under-frontend-public-assets-generated-and-render-it-on-the-final-page",
+      "title": "Add the generated couple illustration image as a static asset under frontend/public/assets/generated and render it on the Final Page.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build mobile-friendly Valentine’s Day site with pastel theme, floating hearts/sparkles background, and smooth animated transitions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Landing page with animated prompt text (“Gunja, will you be my Valentine? 💖”) and YES/NO buttons",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "NO button logic: prevent navigation, cycle through cute animated messages on each click, and add playful dodging/moving/shrinking behavior",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "YES button logic: trigger heart-burst/confetti transition and allow navigation to final page (gate final page access behind YES)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Final page with animated text (“I knew you’d say YES ❤️”), animated couple illustration/photo, and fade-in message (“You’ve made me the happiest 💕”)",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Optional: add soft romantic background music with user-friendly playback behavior",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Cute animated Valentine’s Day mini-site with YES/NO interaction and gated final page",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

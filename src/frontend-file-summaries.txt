@@ -1,0 +1,16 @@
+{
+  "frontend/src/index.css": "Global styles with Valentine-themed OKLCH color palette (soft pastels: pink, rose, blush), custom animations (float, sparkle, bounce, typing, heart-burst, confetti), and utility classes for the romantic aesthetic.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with Valentine color tokens, custom animations (float, sparkle, gentle-pulse, bounce-in, fade-in-up), shadow-valentine utility, and font customization.",
+  "frontend/src/App.tsx": "Main application component managing view state between landing and final pages, integrating ValentineBackground, BackgroundMusicControl, session gating, and celebration transitions.",
+  "frontend/src/components/ValentineBackground.tsx": "Full-screen decorative background layer rendering 15 floating hearts and 20 twinkling sparkles with randomized positions, delays, and animations; pointer-events disabled to avoid blocking UI.",
+  "frontend/src/components/BackgroundMusicControl.tsx": "Fixed-position music control button (bottom-right) with play/pause toggle, volume icon states, and HTMLAudioElement management for optional romantic background music.",
+  "frontend/src/components/AnimatedPromptText.tsx": "Reusable text component supporting typing effect (character-by-character reveal with cursor) or simple fade-in animation for headlines.",
+  "frontend/src/components/NoMessagePopup.tsx": "Animated popup displaying cute rejection messages with bounce-in animation, glass-card styling, heart icon, and auto-dismiss after 2.5 seconds.",
+  "frontend/src/components/CelebrationBurst.tsx": "Full-screen celebration overlay rendering 20 heart-burst particles radiating from center and 15 confetti hearts falling from top, triggered on YES click.",
+  "frontend/src/components/FinalPageGate.tsx": "Guard component wrapping final page content, redirecting to landing page if session gate is not satisfied (YES not clicked).",
+  "frontend/src/pages/LandingPage.tsx": "Landing view with typing-animated prompt \"Gunja, will you be my Valentine? 💖\", YES/NO buttons, NO-click message cycling through four cute messages, button evasion behavior, and celebration trigger.",
+  "frontend/src/pages/FinalPage.tsx": "Final celebration view with animated headline \"I knew you'd say YES ❤️\", gently pulsing couple illustration from static asset, and fade-in bottom message \"You've made me the happiest 💕\".",
+  "frontend/src/hooks/useValentineSessionGate.ts": "Session-based access control hook using sessionStorage to track whether YES was clicked, preventing direct navigation to final page without completing the flow.",
+  "frontend/src/hooks/useNoButtonEvasion.ts": "Hook managing playful NO button behavior with safe bounded dodging (translate + scale), mobile-friendly constraints, and progressive shrinking on repeated clicks.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder queries file (no backend methods needed for this frontend-only Valentine experience)."
+}

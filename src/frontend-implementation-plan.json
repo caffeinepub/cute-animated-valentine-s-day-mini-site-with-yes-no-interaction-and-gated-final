@@ -1,0 +1,250 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Valentine mini-site with animated YES/NO interaction and gated final page (frontend-only)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Create a responsive single-page Valentine experience with pastel theme, floating hearts/sparkles background, and smooth playful animations across views.",
+      "acceptanceCriteria": [
+        "Layout is responsive on common mobile and desktop breakpoints and does not overflow horizontally.",
+        "Background shows continuous floating hearts and subtle sparkles without blocking primary UI interactions.",
+        "Animations/transitions are smooth (no jarring page jumps) when elements appear/disappear or when navigating between views."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add Tailwind directives plus global Valentine theme styles (pastel pink/red/blush palette), animation utilities, and base layout rules to prevent horizontal overflow and ensure smooth transitions."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme with Valentine-specific keyframes/animations (float, sparkle twinkle, gentle pulse, fade-in, pop/bounce) to support consistent site-wide motion."
+        },
+        {
+          "path": "frontend/src/components/ValentineBackground.tsx",
+          "operation": "create",
+          "description": "Implement a full-screen decorative background layer rendering floating hearts and subtle sparkles with CSS animations and pointer-events disabled so it never blocks primary UI interactions."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the app shell that applies the global Valentine layout, mounts the ValentineBackground, and provides smooth view transitions between landing and final views."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Build the landing view with an animated prompt text and two action buttons labeled exactly “YES 💕” and “NO 🙈”.",
+      "acceptanceCriteria": [
+        "Landing view shows the prompt text exactly as provided and it animates in (typing or fade).",
+        "Two buttons are clearly visible beneath the prompt with the exact labels: “YES 💕” and “NO 🙈”.",
+        "All user-facing text is in English."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LandingPage.tsx",
+          "operation": "create",
+          "description": "Implement the centered prompt text exactly “Gunja, will you be my Valentine? 💖” with a typing or fade-in animation, and render two buttons beneath labeled exactly “YES 💕” and “NO 🙈”. Use shadcn-ui Button (and optionally Card) for consistent styling; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/AnimatedPromptText.tsx",
+          "operation": "create",
+          "description": "Add a reusable animated text component (typing effect or fade-in) suitable for the landing prompt and/or final headline."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the LandingPage into the app’s navigation (default/initial view) so it is reachable on initial load."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Ensure clicking “NO 🙈” never reaches the final page and instead cycles through cute animated messages, changing on every click.",
+      "acceptanceCriteria": [
+        "Clicking “NO 🙈” does not change the app to the final page and does not unlock final-page access.",
+        "Each “NO 🙈” click shows a message with a visible animation (e.g., bounce, float-up, or popup).",
+        "Messages rotate/change on every click and include at least the four quoted messages exactly."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/NoMessagePopup.tsx",
+          "operation": "create",
+          "description": "Create an animated message popup/floating text component that can display rotating NO-click messages with visible motion (bounce/float-up/popup) and consistent Valentine styling."
+        },
+        {
+          "path": "frontend/src/pages/LandingPage.tsx",
+          "operation": "modify",
+          "description": "Implement NO button click logic to rotate through messages on each click and render the animated message UI. Ensure messages include exactly: “Are you sure? 🥺”, “My heart just melted a little 💔”, “Okay… I’ll ask again nicely 🌸”, “I’m not giving up on us 💗”, and do not navigate/unlock the final page."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Add playful anti-selection behavior to the “NO 🙈” button (dodge/move/shrink) while keeping it accessible on mobile.",
+      "acceptanceCriteria": [
+        "The “NO 🙈” button exhibits playful motion/size change behavior that is noticeable and varies user interaction.",
+        "On mobile, the “NO 🙈” button remains usable (not permanently unreachable) and does not cause layout breakage."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useNoButtonEvasion.ts",
+          "operation": "create",
+          "description": "Add a small hook that computes safe, bounded position/transform variations for the NO button on hover/click, with mobile-friendly constraints so it remains tappable."
+        },
+        {
+          "path": "frontend/src/pages/LandingPage.tsx",
+          "operation": "modify",
+          "description": "Apply the evasion behavior to the “NO 🙈” button on hover and/or click (e.g., small dodge/scale), ensuring it stays within layout bounds and remains reachable on mobile."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add any supporting animation classes (e.g., wiggle, micro-bounce, soft scale) used by the NO button behavior while preserving responsive layout stability."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Make “YES 💕” trigger a celebratory animation (heart-burst/confetti) and then transition to the final page.",
+      "acceptanceCriteria": [
+        "Clicking “YES 💕” triggers a visible heart-burst or confetti animation.",
+        "After the celebration, the app transitions to the final page view."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/CelebrationBurst.tsx",
+          "operation": "create",
+          "description": "Implement a lightweight celebratory overlay animation (heart-burst and/or confetti-style particles) triggered by YES, designed not to block navigation longer than necessary."
+        },
+        {
+          "path": "frontend/src/pages/LandingPage.tsx",
+          "operation": "modify",
+          "description": "On “YES 💕” click, trigger the CelebrationBurst, set session gating state for final access, and then navigate/transition to the final view after a brief celebration."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Gate final-page access so it is only available after “YES 💕” is clicked in the current session; direct navigation/refresh must not reveal final content.",
+      "acceptanceCriteria": [
+        "If the app is loaded directly into the final page route/view (e.g., refresh or direct link), the final content is not shown unless YES was clicked in the current session.",
+        "After clicking “YES 💕”, the final page becomes accessible for the remainder of the session."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/hooks/useValentineSessionGate.ts",
+          "operation": "create",
+          "description": "Implement session-only gating using sessionStorage (or equivalent in-memory+session mechanism) to record whether YES has been clicked for the current session and to expose helpers for checking/setting access."
+        },
+        {
+          "path": "frontend/src/components/FinalPageGate.tsx",
+          "operation": "create",
+          "description": "Create a guard component that blocks final content unless the session gate is satisfied; otherwise redirects to or renders the landing view."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the final view behind FinalPageGate so direct navigation/refresh cannot reveal final content without an in-session YES."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Build the final page with animated headline text, a gently animated couple illustration, and a fade-in closing message.",
+      "acceptanceCriteria": [
+        "Final page displays the two exact text strings provided and both animate in (headline animated; bottom message fades in).",
+        "A couple illustration/photo is shown and has a gentle looping animation (float or pulse)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/FinalPage.tsx",
+          "operation": "create",
+          "description": "Implement the final view with centered animated headline exactly “I knew you’d say YES ❤️”, render the couple illustration with a gentle looping float/pulse animation, and show a soft fade-in message exactly “You’ve made me the happiest 💕”."
+        },
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Add/adjust animations for final-page elements (headline animate-in, image gentle float/pulse loop, bottom-message fade-in) to maintain consistent romantic motion style."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire the FinalPage into the app’s navigation so it is reachable only through the gated flow."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add optional soft romantic background music with a clear play/pause control; default off and no autoplay with sound.",
+      "acceptanceCriteria": [
+        "There is a visible play/pause (and/or mute) control for background music.",
+        "Music does not autoplay with sound upon initial page load (user gesture required to start audio)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/BackgroundMusicControl.tsx",
+          "operation": "create",
+          "description": "Add a small music controller component (play/pause and/or mute) backed by an HTMLAudioElement with default paused/muted state and user-gesture start only. Use shadcn-ui Button for the control styling; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/public/assets/audio/romantic-background.mp3",
+          "operation": "create",
+          "description": "Add a soft romantic background music audio asset for the optional playback feature (kept as a static public file)."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Mount BackgroundMusicControl in a consistent, non-intrusive position across views so the user can control music at any time."
+        }
+      ]
+    },
+    {
+      "id": "REQ-9",
+      "summary": "Apply a coherent cute romantic visual system (typography, buttons, spacing, popup styling) across landing and final views with readable, accessible contrast.",
+      "acceptanceCriteria": [
+        "Typography, buttons, popups, and animations look consistent across landing and final pages.",
+        "Contrast/readability is sufficient for primary text and buttons on typical screens."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "modify",
+          "description": "Define consistent typography scale, button/popup styling helpers, focus states, and readable color contrasts aligned to the pastel Valentine aesthetic."
+        },
+        {
+          "path": "frontend/src/pages/LandingPage.tsx",
+          "operation": "modify",
+          "description": "Align landing layout spacing, button styles, and message popup presentation to the shared visual system. Use shadcn-ui primitives where appropriate for consistency; verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/pages/FinalPage.tsx",
+          "operation": "modify",
+          "description": "Align final view typography, spacing, and animation timing to match landing styling for a coherent cross-view visual system."
+        }
+      ]
+    },
+    {
+      "id": "REQ-10",
+      "summary": "Add the generated couple illustration as a static asset and render it on the final page with gentle animation.",
+      "acceptanceCriteria": [
+        "The couple illustration is stored as a static file in frontend/public/assets/generated.",
+        "The final page displays the static asset and applies gentle animation (float/pulse) to it."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/valentine-couple.dim_800x600.png",
+          "operation": "create",
+          "description": "Add the generated static couple illustration asset at the exact required path: frontend/public/assets/generated/valentine-couple.dim_800x600.png."
+        },
+        {
+          "path": "frontend/src/pages/FinalPage.tsx",
+          "operation": "modify",
+          "description": "Render the static image from frontend/public/assets/generated/valentine-couple.dim_800x600.png and apply a gentle looping float/pulse animation to the image element."
+        }
+      ]
+    }
+  ]
+}

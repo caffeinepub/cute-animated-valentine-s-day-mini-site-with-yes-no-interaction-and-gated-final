@@ -1,0 +1,201 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-implement-a-mobile-friendly-responsive-single-page-valentine-s-day-experience-with-a-soft-pastel-valentine-theme-pink-red-blush-floating-hearts-sparkles-background-smooth-transitions-and-playful-animations-applied-consistently-across-the-site",
+      "featureTitle": "Implement a mobile-friendly, responsive single-page Valentine’s Day experience with a soft pastel Valentine theme (pink/red/blush), floating hearts + sparkles background, smooth transitions, and playful animations applied consistently across the site.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ValentineBackground.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-the-landing-page-with-centered-animated-prompt-text-that-displays-the-exact-string-gunja-will-you-be-my-valentine-using-a-typing-effect-or-a-fade-in-effect-and-render-two-buttons-below-yes-and-no",
+      "featureTitle": "Create the Landing Page with centered animated prompt text that displays the exact string: “Gunja, will you be my Valentine? 💖” using a typing effect or a fade-in effect, and render two buttons below: “YES 💕” and “NO 🙈”.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/AnimatedPromptText.tsx",
+        "frontend/src/pages/LandingPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-no-button-behavior-so-that-clicking-no-never-navigates-to-the-final-page-and-instead-cycles-through-a-changing-set-of-cute-animated-messages-popup-floating-text-bounce-on-each-click-including-at-least-these-messages-are-you-sure-my-heart-just-melted-a-little-okay-i-ll-ask-again-nicely-i-m-not-giving-up-on-us",
+      "featureTitle": "Implement NO button behavior so that clicking “NO 🙈” never navigates to the final page and instead cycles through a changing set of cute animated messages (popup / floating text / bounce) on each click, including at least these messages: “Are you sure? 🥺”, “My heart just melted a little 💔”, “Okay… I’ll ask again nicely 🌸”, “I’m not giving up on us 💗”.",
+      "files": [
+        "frontend/src/components/NoMessagePopup.tsx",
+        "frontend/src/pages/LandingPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-playful-anti-selection-behavior-to-the-no-button-e-g-moving-slightly-shrinking-or-dodging-triggered-on-click-and-or-hover-while-ensuring-it-remains-accessible-and-tappable-on-mobile",
+      "featureTitle": "Add playful anti-selection behavior to the “NO 🙈” button (e.g., moving slightly, shrinking, or dodging) triggered on click and/or hover, while ensuring it remains accessible and tappable on mobile.",
+      "files": [
+        "frontend/src/hooks/useNoButtonEvasion.ts",
+        "frontend/src/index.css",
+        "frontend/src/pages/LandingPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-yes-button-behavior-so-that-clicking-yes-triggers-a-celebratory-heart-burst-or-confetti-animation-and-transitions-to-the-final-page",
+      "featureTitle": "Implement YES button behavior so that clicking “YES 💕” triggers a celebratory heart-burst or confetti animation and transitions to the Final Page.",
+      "files": [
+        "frontend/src/components/CelebrationBurst.tsx",
+        "frontend/src/pages/LandingPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-gate-final-page-access-so-the-user-cannot-reach-the-final-page-unless-yes-was-clicked-in-the-current-session-direct-navigation-refresh-should-show-the-landing-page-or-otherwise-block-final-content-until-yes-has-been-clicked",
+      "featureTitle": "Gate Final Page access so the user cannot reach the final page unless “YES 💕” was clicked in the current session; direct navigation/refresh should show the landing page (or otherwise block final content) until YES has been clicked.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/FinalPageGate.tsx",
+        "frontend/src/hooks/useValentineSessionGate.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-the-final-page-with-centered-animated-text-showing-the-exact-string-i-knew-you-d-say-yes-followed-by-a-cute-cartoon-style-romantic-couple-illustration-photo-that-gently-animates-floating-or-pulsing-and-below-it-a-soft-fade-in-message-showing-the-exact-string-you-ve-made-me-the-happiest",
+      "featureTitle": "Create the Final Page with centered animated text showing the exact string: “I knew you’d say YES ❤️”, followed by a cute cartoon-style romantic couple illustration/photo that gently animates (floating or pulsing), and below it a soft fade-in message showing the exact string: “You’ve made me the happiest 💕”.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/index.css",
+        "frontend/src/pages/FinalPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-an-optional-soft-romantic-background-music-feature-with-user-friendly-playback-behavior-default-off-muted-clear-play-pause-control-does-not-autoplay-with-sound-on-initial-load",
+      "featureTitle": "Add an optional soft romantic background music feature with user-friendly playback behavior (default off/muted, clear play/pause control, does not autoplay with sound on initial load).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/BackgroundMusicControl.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-apply-a-coherent-cute-romantic-visual-system-across-all-views-typography-pairing-button-styles-spacing-card-popup-styling-for-messages-that-matches-the-pastel-valentine-aesthetic-and-remains-readable-and-accessible",
+      "featureTitle": "Apply a coherent, cute romantic visual system across all views (typography pairing, button styles, spacing, card/popup styling for messages) that matches the pastel Valentine aesthetic and remains readable and accessible.",
+      "files": [
+        "frontend/src/index.css",
+        "frontend/src/pages/FinalPage.tsx",
+        "frontend/src/pages/LandingPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-9"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-the-generated-couple-illustration-image-as-a-static-asset-under-frontend-public-assets-generated-and-render-it-on-the-final-page",
+      "featureTitle": "Add the generated couple illustration image as a static asset under frontend/public/assets/generated and render it on the Final Page.",
+      "files": [
+        "frontend/src/pages/FinalPage.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-10"
+      ],
+      "confidence": "high"
+    }
+  ]
+}
